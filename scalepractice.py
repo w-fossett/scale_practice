@@ -15,7 +15,7 @@ def getScales(practiceList):
     print("\nEnter scales (default: major and minor)\n\nEnter 'done' when finished.\nRemove scale: 'rm scalename'\nView current scales: 'ls'\n\n")
 
     scale = input()
-    removePattern = re.compile(r'^rm ')
+    removePattern = re.compile(r'^rm ') # Handles the 'rm' command
 
     while scale != 'done':
         if scale == 'ls':
@@ -34,7 +34,7 @@ def getScales(practiceList):
         elif scale != "":
             practiceList.append(scale)
         scale = input()
-    if len(practiceList) == 0:
+    if len(practiceList) == 0: # Default case
         practiceList.append("Major")
         practiceList.append("Minor")
 
@@ -48,13 +48,13 @@ def assembleScales(qualities, output):
 def displayScales(scales):
     scalesPlayed = 0
     scaleTotal = len(scales)
-    print()
+    print() # Separate scale entry from scale display
 
     while scalesPlayed < scaleTotal:
         currentScale = scales[randint(0, len(scales) - 1)]
         print(currentScale)
         scales.remove(currentScale)
-        buffer = "-" * max((len(currentScale) - 6), 1)
+        buffer = "-" * max((len(currentScale) - 6), 1) # 6 is an approximation for the length of the progres display
 
         command = input(f"[{scalesPlayed + 1}/{scaleTotal}] {buffer} Press 'enter' to continue or enter 's' to stop.\n")
         while command not in ['s', '']:
