@@ -54,7 +54,7 @@ def displayScales(scales):
         currentScale = scales[randint(0, len(scales) - 1)]
         print(currentScale)
         scales.remove(currentScale)
-        buffer = "-" * max((len(currentScale) - 6), 1) # 6 is an approximation for the length of the progres display
+        buffer = "-" * max((len(currentScale) - 6), 1) # 6 is an approximation for the length of the progress display
 
         command = input(f"[{scalesPlayed + 1}/{scaleTotal}] {buffer} Press 'enter' to continue or enter 's' to stop.\n")
         while command not in ['s', '']:
